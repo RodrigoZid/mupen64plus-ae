@@ -501,13 +501,13 @@ if( CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif( CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 if( CMAKE_BUILD_TYPE STREQUAL "Release")
-  include(CheckIPOSupported)
-  check_ipo_supported(RESULT result)
-  if(result)
-    message("Interprocedural optimizations enabled")
-    set_property(TARGET ${GLideN64_DLL_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -O3")
-  endif()
+  #include(CheckIPOSupported)
+  #check_ipo_supported(RESULT result)
+  #if(result)
+  #  message("Interprocedural optimizations enabled")
+  #  set_property(TARGET ${GLideN64_DLL_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+  #  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -O3")
+  #endif()
 
   SET_TARGET_PROPERTIES(
 	${GLideN64_DLL_NAME}

@@ -24,6 +24,28 @@
 /* memcpy() and memset() in SP DMA */
 #include <string.h>
 
+enum {
+    RCP_SP_MEM_ADDR_REG,
+    RCP_SP_DRAM_ADDR_REG,
+    RCP_SP_RD_LEN_REG,
+    RCP_SP_WR_LEN_REG,
+    RCP_SP_STATUS_REG,
+    RCP_SP_DMA_FULL_REG,
+    RCP_SP_DMA_BUSY_REG,
+    RCP_SP_SEMAPHORE_REG,
+
+    RCP_DPC_START_REG,
+    RCP_DPC_END_REG,
+    RCP_DPC_CURRENT_REG,
+    RCP_DPC_STATUS_REG,
+    RCP_DPC_CLOCK_REG,
+    RCP_DPC_BUFBUSY_REG,
+    RCP_DPC_PIPEBUSY_REG,
+    RCP_DPC_TMEM_REG,
+
+    NUMBER_OF_CP0_REGISTERS
+} CPR_specifier;
+
 u32 inst_word;
 
 u32 SR[NUMBER_OF_SCALAR_REGISTERS];

@@ -49,7 +49,6 @@ import paulscode.android.mupen64plusae.cheat.CheatPreference;
 import paulscode.android.mupen64plusae.cheat.CheatUtils.Cheat;
 import paulscode.android.mupen64plusae.compat.AppCompatPreferenceActivity;
 import paulscode.android.mupen64plusae.dialog.PromptInputCodeDialog.PromptInputCodeListener;
-import paulscode.android.mupen64plusae.hack.MogaHack;
 import paulscode.android.mupen64plusae.preference.PlayerMapPreference;
 import paulscode.android.mupen64plusae.preference.PrefUtil;
 import paulscode.android.mupen64plusae.preference.ProfilePreference;
@@ -149,9 +148,6 @@ public class GamePrefsActivity extends AppCompatPreferenceActivity implements On
 
         if( TextUtils.isEmpty( mRomMd5 ) )
             throw new Error( "MD5 must be passed via the extras bundle" );
-
-        // Initialize MOGA controller API
-        MogaHack.init( mMogaController, this );
 
         // Get app data and user preferences
         mAppData = new AppData( this );

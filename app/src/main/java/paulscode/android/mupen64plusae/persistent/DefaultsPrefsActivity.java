@@ -33,7 +33,6 @@ import org.mupen64plusae.v3.alpha.R;
 
 import paulscode.android.mupen64plusae.compat.AppCompatPreferenceActivity;
 import paulscode.android.mupen64plusae.dialog.PromptInputCodeDialog.PromptInputCodeListener;
-import paulscode.android.mupen64plusae.hack.MogaHack;
 import paulscode.android.mupen64plusae.preference.PlayerMapPreference;
 import paulscode.android.mupen64plusae.preference.PrefUtil;
 import paulscode.android.mupen64plusae.preference.ProfilePreference;
@@ -75,9 +74,6 @@ public class DefaultsPrefsActivity extends AppCompatPreferenceActivity implement
         mGlobalPrefs = new GlobalPrefs(this, mAppData);
 
         mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // Initialize MOGA controller API
-        MogaHack.init(mMogaController, this);
 
         // Load user preference menu structure from XML and update view
         addPreferencesFromResource(null, R.xml.preferences_defaults);

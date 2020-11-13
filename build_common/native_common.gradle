@@ -34,6 +34,7 @@ android {
                 arguments "-j11"
                 cppFlags "-fexceptions"
                 abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+                arguments.add('--output-sync=none')
             }
         }
     }

@@ -45,7 +45,6 @@ import paulscode.android.mupen64plusae.dialog.ConfirmationDialog.PromptConfirmLi
 import paulscode.android.mupen64plusae.dialog.Prompt;
 import paulscode.android.mupen64plusae.dialog.PromptInputCodeDialog;
 import paulscode.android.mupen64plusae.dialog.PromptInputCodeDialog.PromptInputCodeListener;
-import paulscode.android.mupen64plusae.hack.MogaHack;
 import paulscode.android.mupen64plusae.input.InputEntry;
 import paulscode.android.mupen64plusae.input.InputStrengthCalculator;
 import paulscode.android.mupen64plusae.input.map.InputMap;
@@ -120,9 +119,6 @@ public abstract class ControllerProfileActivityBase extends AppCompatActivity im
     public void onCreate( Bundle savedInstanceState )
     {
         super.onCreate( savedInstanceState );
-        
-        // Initialize MOGA controller API
-        MogaHack.init( mMogaController, this );
         
         // Get the user preferences wrapper
         AppData appData = new AppData( this );

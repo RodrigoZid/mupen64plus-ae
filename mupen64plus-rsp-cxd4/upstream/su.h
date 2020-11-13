@@ -262,33 +262,12 @@ extern void set_PC(unsigned int address);
 #define SP_STATUS_SIG0          (0x00000001ul <<  7)
 #define SP_STATUS_SIG1          (0x00000001ul <<  8)
 #define SP_STATUS_SIG2          (0x00000001ul <<  9)
-#define SP_STATUS_SIG3          (0x00000001ul << 10)
+#define SP_STATUS_SIG3          (0x00000001ul << 10)su.h
 #define SP_STATUS_SIG4          (0x00000001ul << 11)
 #define SP_STATUS_SIG5          (0x00000001ul << 12)
 #define SP_STATUS_SIG6          (0x00000001ul << 13)
 #define SP_STATUS_SIG7          (0x00000001ul << 14)
 
-enum {
-    RCP_SP_MEM_ADDR_REG,
-    RCP_SP_DRAM_ADDR_REG,
-    RCP_SP_RD_LEN_REG,
-    RCP_SP_WR_LEN_REG,
-    RCP_SP_STATUS_REG,
-    RCP_SP_DMA_FULL_REG,
-    RCP_SP_DMA_BUSY_REG,
-    RCP_SP_SEMAPHORE_REG,
-
-    RCP_DPC_START_REG,
-    RCP_DPC_END_REG,
-    RCP_DPC_CURRENT_REG,
-    RCP_DPC_STATUS_REG,
-    RCP_DPC_CLOCK_REG,
-    RCP_DPC_BUFBUSY_REG,
-    RCP_DPC_PIPEBUSY_REG,
-    RCP_DPC_TMEM_REG,
-
-    NUMBER_OF_CP0_REGISTERS
-} CPR_specifier;
 extern pu32 CR[];
 
 extern void SP_DMA_READ(void);

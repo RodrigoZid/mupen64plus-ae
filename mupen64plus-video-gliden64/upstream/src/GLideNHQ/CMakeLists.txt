@@ -98,7 +98,17 @@ if( NOT GHQCHK )
       set_target_properties(GLideNHQd PROPERTIES LINK_SEARCH_START_STATIC 1)
       set_target_properties(GLideNHQd PROPERTIES LINK_SEARCH_END_STATIC 1)
 
-      if(MINGW OR BCMHOST OR APPLE OR USE_SYSTEM_LIBS)
+      if(ANDROID)
+          include_directories(
+                  "${ANDROID_LIB_PATH}/png"
+          )
+        target_link_libraries(GLideNHQ PRIVATE
+                ${ANDROID_LIB_PATH}/libs/${BUILD_VARIANT}/${ANDROID_ABI}/libpng.a
+                z
+                dl
+                osal
+                )
+      elseif(MINGW OR BCMHOST OR APPLE OR USE_SYSTEM_LIBS)
         FIND_PACKAGE( ZLIB REQUIRED )
         FIND_PACKAGE( PNG REQUIRED )
         target_link_libraries(GLideNHQd
@@ -106,21 +116,14 @@ if( NOT GHQCHK )
           ${ZLIB_LIBRARIES}
           osald
         )
-      elseif(ANDROID)
-          target_link_libraries(GLideNHQ PRIVATE
-                  ${ANDROID_LIB_PATH}/libs/${BUILD_VARIANT}/${ANDROID_ABI}/libpng.a
-                  z
-                  dl
-                  osal
-                  )
-      else(MINGW OR BCMHOST OR APPLE OR USE_SYSTEM_LIBS)
+      else(ANDROID)
         target_link_libraries(GLideNHQd PRIVATE
           ${CMAKE_CURRENT_SOURCE_DIR}/lib/libpng.a
           ${CMAKE_CURRENT_SOURCE_DIR}/lib/libz.a
           dl
           osald
         )
-      endif(MINGW OR BCMHOST OR APPLE OR USE_SYSTEM_LIBS)
+      endif(ANDROID)
     endif( CMAKE_BUILD_TYPE STREQUAL "Debug")
 
     if( CMAKE_BUILD_TYPE STREQUAL "Release")
@@ -137,19 +140,22 @@ if( NOT GHQCHK )
           /mnt/utmp/codeblocks/usr/lib/libz.a
           osal
         )
+      elseif(ANDROID)
+          include_directories(
+                  "${ANDROID_LIB_PATH}/png"
+          )
+          target_link_libraries(GLideNHQ PRIVATE
+                  ${ANDROID_LIB_PATH}/libs/${BUILD_VARIANT}/${ANDROID_ABI}/libpng.a
+                  z
+                  dl
+                  osal
+                  )
       elseif(BCMHOST OR MINGW OR APPLE OR USE_SYSTEM_LIBS)
         FIND_PACKAGE( ZLIB REQUIRED )
         FIND_PACKAGE( PNG REQUIRED )
         target_link_libraries(GLideNHQ
           ${PNG_LIBRARIES}
           ${ZLIB_LIBRARIES}
-          osal
-        )
-      elseif(ANDROID)
-        target_link_libraries(GLideNHQ PRIVATE
-          ${ANDROID_LIB_PATH}/libs/${BUILD_VARIANT}/${ANDROID_ABI}/libpng.a
-          z
-          dl
           osal
         )
       else(PANDORA)

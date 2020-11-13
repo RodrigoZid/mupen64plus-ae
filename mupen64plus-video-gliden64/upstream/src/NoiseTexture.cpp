@@ -37,11 +37,7 @@ NoiseTexture::NoiseTexture()
 static
 u32 Rand(u32 rand_value)
 {
-#ifdef MINGW
-	rand_s(&rand_value);
-#else
 	rand_value = rand();
-#endif
 	return rand_value;
 }
 

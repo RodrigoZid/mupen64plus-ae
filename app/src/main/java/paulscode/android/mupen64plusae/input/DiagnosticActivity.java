@@ -38,7 +38,6 @@ import org.mupen64plusae.v3.alpha.R;
 
 import java.util.Locale;
 
-import paulscode.android.mupen64plusae.hack.MogaHack;
 import paulscode.android.mupen64plusae.input.provider.AbstractProvider;
 import paulscode.android.mupen64plusae.util.DeviceUtil;
 import paulscode.android.mupen64plusae.util.LocaleContextWrapper;
@@ -66,8 +65,6 @@ public class DiagnosticActivity extends AppCompatActivity implements ControllerL
         setContentView( R.layout.diagnostic_activity );
         
         // TODO: Remove hack after MOGA SDK is fixed
-        // mMogaController.init();
-        MogaHack.init( mMogaController, this );
         mMogaController.setListener( this, new Handler() );
     }
     

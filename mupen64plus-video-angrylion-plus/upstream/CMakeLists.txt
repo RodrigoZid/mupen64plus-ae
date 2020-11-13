@@ -19,15 +19,15 @@ endif()
 set(CMAKE_MACOSX_RPATH 1)
 
 # check for INTERPROCEDURAL_OPTIMIZATION support
-if((${CMAKE_VERSION} VERSION_EQUAL 3.9) OR (${CMAKE_VERSION} VERSION_GREATER 3.9))
-    cmake_policy(SET CMP0069 NEW)
+#if((${CMAKE_VERSION} VERSION_EQUAL 3.9) OR (${CMAKE_VERSION} VERSION_GREATER 3.9))
+#    cmake_policy(SET CMP0069 NEW)
 
-    include(CheckIPOSupported)
-    check_ipo_supported(RESULT ENABLE_IPO)
-    if(ENABLE_IPO)
-        message("Interprocedural optimizations enabled")
-    endif(ENABLE_IPO)
-endif()
+#    include(CheckIPOSupported)
+#    check_ipo_supported(RESULT ENABLE_IPO)
+#    if(ENABLE_IPO)
+#        message("Interprocedural optimizations enabled")
+#    endif(ENABLE_IPO)
+#endif()
 
 # C++14 is required for the Parallel utility class
 set(CMAKE_CXX_STANDARD 14)
@@ -140,4 +140,4 @@ if(NOT ANDROID)
     set_target_properties(${NAME_PLUGIN_M64P} PROPERTIES PREFIX "")
 endif()
 
-target_link_libraries(${NAME_PLUGIN_M64P} alp-core alp-output ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES})
+target_link_libraries(${NAME_PLUGIN_M64P} alp-core alp-output ${CMAKE_THREAD_LIBS_INIT} ${OPENGL_LIBRARIES} dl)
